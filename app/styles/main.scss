@@ -5,7 +5,6 @@
 @import "variables/motionui";
 
 
-
 // -----------------------------------------------------------------------------
 // Dependencies via Bower
 //
@@ -38,7 +37,7 @@
 // @include foundation-button-group;
 // @include foundation-callout;
 // @include foundation-close-button;
-// @include foundation-menu;
+ //@include foundation-menu;
 // @include foundation-menu-icon;
 // @include foundation-drilldown-menu;
 // @include foundation-dropdown;
@@ -59,44 +58,257 @@
 // @include foundation-thumbnail;
 // @include foundation-title-bar;
 // @include foundation-tooltip;
-// @include foundation-top-bar;
+//@include foundation-top-bar;
 // @include foundation-visibility-classes;
 // @include foundation-float-classes;
 @include foundation-flex-classes;
 
 
-
-// =============================================================================
-// DELETE THIS SECTION
-
-.readme {
+body{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: rem-calc(20);
-    font-weight: 200;
-    margin-top: rem-calc(50);
-    @include flex-grid-row;
-    @include flex-align($x: center);
-    .content {
-        width: 100%;
-        padding: rem-calc(40);
-        @include transition;
-        @include breakpoint(medium) {
-            width: rem-calc(400);
-            padding: rem-calc(60);
-            border-radius: rem-calc(6);
-            box-shadow: 0 rem-calc(10) rem-calc(50) rgba(38, 50, 56, 0.10);
+    font-size: 16px;
+    line-height: 1.1375em;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style-type: none;
+}
+a{
+    color: #000;
+}
+// -----------------------------------------------------------------------------
+// Header
+// -----------------------------------------------------------------------------
+.main-header,
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+.main-header{
+    padding-top: 2em;
+}
+.site-logo{
+    width: 50%;
+    align-self: center;
+    img{
+        text-align: center;
+    }
+}
+.nav{
+    margin-top: 1.5em;
+    a{
+        display:block;
+        color: #797e83;
+        font-size:1.125em;
+        font-weight: 500;
+        text-align: center;
+        padding: .9em;
+        border-bottom: 1px solid #ebecec;
+        &:hover{
+            color: $yellow;
+            border-bottom-color: $yellow;
         }
-        ul {
-            margin-bottom: 0;
+    }
+}
+.login{
+    display:block;
+    color: #797e83;
+    font-size:1.125em;
+    font-weight: 500;
+    text-align: center;
+    padding: .9em;
+    &:hover{
+        color: $yellow;
+        border-bottom-color: $yellow;
+    }
+    i{
+        display: none;
+    }
+}
+/* --------------------------
+  Media Queries
+--------------------------- */
+@media (min-width: 639px) {
+    .main-header{
+        flex-direction: row;
+        padding-top: 0;
+    }
+    .site-logo{
+        margin-right: auto;
+    }
+    .nav {
+        flex-direction: row;
+        margin-top: 0;
+        align-self: center;
+    a {
+        border-bottom-color: transparent;
+        padding: 2em 2em;
+        font-size: .75em;
+    }
+  }
+
+    nav li{
+        margin-left:.65em;
+        margin-right: .65em;
+    }
+
+    .login{
+        border-bottom-color: transparent;
+        font-size: .75em;
+        padding: 2em;
+        padding-right: 16em;
+        background-color: #eceff1;
+        border-left: 2px solid #cfd8dc;
+        color: #78909c;
+        position: relative;
+        text-align: left;
+        i{
+            display: inline-block;
+            font-size: 2.5em;
+            position: absolute;
+            top: 17px;
+            left: 60px;
+
         }
     }
 }
 
-// DELETE THIS SECTION
-// =============================================================================
 
 
 
 // -----------------------------------------------------------------------------
-// Add Your Code/Imports Here
+// Baner
 // -----------------------------------------------------------------------------
+.cycle-slideshow {
+    margin-bottom: 81px;
+    position: relative;
+}
+.cycle-slideshow img {
+    max-width: 100%;
+    height: auto;
+}
+.cycle-prev,
+.cycle-next {
+    margin-top: -1.5em;
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+}
+.cycle-prev a i,
+.cycle-next a i{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 3em;
+}
+.cycle-prev a i:hover,
+.cycle-next a i:hover {
+    color: #fff;
+}
+.cycle-prev {
+    left: 2em;
+}
+.cycle-next {
+    right: 2em;
+}
+.slide {
+    color: #fff;
+    min-height: 500px;
+    width: 100%;
+    padding: 125px 0 25px;
+    text-align: center;
+    h1{
+        font-size: 2.5em;
+        font-weight: 300;
+        &::after{
+            content:'';
+            display: block;
+            width: 140px;
+            border-bottom: 2px solid $yellow;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    }
+    .slide-contents{
+        max-width: 620px;
+        margin: 0 auto;
+        p{
+            font-size: 1.125em;
+            line-height: 1.5em;
+            padding: 25px 0;
+        }
+    }
+    .btn{
+        background: $yellow;
+        padding: 15px 35px;
+        font-size: 1.125em;
+        color: $orange;
+        font-weight: 500;
+        border-bottom: 1px solid $orange;
+        border-radius: 5px;
+        &:hover{
+            color: rgba(#fff, .5);
+            border-bottom-width: 2px;
+        }
+    }
+}
+#slide-1 {
+    background: #333538 url(../../images/slide-1-bg.jpg) 0 0 no-repeat;
+    background-size: cover;
+}
+
+#slide-2 {
+    background: #333538 url(../../images/slide-2-bg.jpg) 0 0 no-repeat;
+    background-size: cover;
+}
+
+
+
+
+// -----------------------------------------------------------------------------
+// Main Conternt
+// -----------------------------------------------------------------------------
+.main{
+    margin: 50px 0px;
+    section{
+        width: 45%;
+        float: left;
+        p{
+            font-size: 16px;
+            line-height: 22px;
+            font-family: 'Helvetica Neue';
+            color: #263238;
+            padding-right: 5%;
+        }
+    }
+}
+
+
+
+// -----------------------------------------------------------------------------
+// Footer
+// -----------------------------------------------------------------------------
+
+footer{
+    background-color: #eceff1;
+    border-top: solid 2px #cfd8dc;
+    clear: both;
+    p{
+        text-align: center;
+        font-size: 10px;
+        padding: 70px 0;
+        color: #78909c;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
